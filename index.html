@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de IMC</title>
+</head>
+<body>
+    <header>
+        <a href="https://fherexe.github.io/MyLinks/"><img src="img/fjerxe__1_-removebg-preview.png"></a>
+    </header>
+
+    <main>
+        <div class="main-txt">
+            <p>Índice de Massa Corporal</p>
+            <h1>Calculadora de IMC</h1>
+            <br>
+            <p>O IMC (Índice de Massa Corporal), é uma ferramenta que usa uma fórmula simples para avaliar se uma pessoa está com um peso considerado ideal. O peso tem um impacto direto na saúde, sendo que estar acima do peso ideal aumenta o risco de doenças cardíacas, enquanto estar abaixo pode causar problemas como queda de cabelo e distúrbios intestinais, entre outros efeitos. O IMC é calculado dividindo o peso pela altura, e você pode descobrir o seu usando nossa calculadora online.</p>
+            <br>
+            <p>Preencha seus dados abaixo e confira!</p>
+        </div>
+        <div class="bg-main"></div>
+    </main>
+
+    <section>
+        <div class="section-container1">
+
+            <div class="input-container">
+                <div class="container-altura">
+                <label for="altura">DIGITE SUA Altura (exemplo: 1,70)</label>
+                <input type="number" id="altura" name="altura">
+                </div>
+
+                <div class="container-peso">
+                <label for="peso">DIGITE SEU PESO (exemplo: 40)</label>
+                <input type="number" id="peso" name="peso">
+                </div>
+            </div>
+
+            <div id="resultado">
+                <h2>Seu resultado aqui </h2>
+            </div>
+               
+            <button onclick="calcularImc()">Calcular</button>
+        </div>
+
+        
+        <div class="section-container2">
+            <!--Hierarquia de tanela simples 
+                    TABLE = TABELA
+                        TABLE = ROW tr
+                            TABLE HEADER = cabeçalho
+                            TABLE DATA = dado de tabela
+                 -->
+            <table>
+                <tr class="title-th">
+                    <th>IMC (kg/m2)</th>
+                    <th>Classificação</th>                    
+                </tr>
+
+                <tr>
+                    <td> Menor que 16,9</td>
+                    <td>Muito abaixo do peso</td>                    
+                </tr>
+
+                <tr>
+                    <td>17 a 18,4</td>
+                    <td>Abaixo do peso</td>                    
+                </tr>
+
+                <tr>
+                    <td>18,5 a 24,9</td>
+                    <td>Peso normal</td>                    
+                </tr>
+
+                <tr>
+                    <td>25 a 29,9</td>
+                    <td>Acima do peso</td>                    
+                </tr>
+
+                <tr>
+                    <td>30 a 34,9</td>
+                    <td>Obesidade grau I</td>                    
+                </tr>
+
+                <tr>
+                    <td>35 a 40</td>
+                    <td>Obesidade grau II</td>                    
+                </tr>
+
+                <tr>
+                    <td>Maior que 40</td>
+                    <td>Obesidade grau III</td>                    
+                </tr>
+            </table>
+        </div>
+    </section>
+
+    <article>
+        <div class="article-container1">
+            <h2>O IMC é confiável? É eficaz?</h2>
+            <p>
+                O IMC sozinho não é indicado como um método de avaliação. Por não levar em conta a composição corporal, o IMC acaba não realizando um cálculo 100% preciso e válido para todas as pessoas. Para mensurar uma grande quantidade de pessoas, encontrar uma porcentagem ou média, o IMC ainda é muito eficaz. Porém, por não indicar a distribuição de gordura no corpo e não ser capaz de indicar a relação entre massa gorda e massa magra, o IMC precisa ser avaliado em conjunto com outros indicativos. E, para um panorama completo e mais preciso, se faz necessário o acompanhamento de um profissional da Saúde.</p>
+        </div>
+
+        <div class="article-container2">
+            <p>&copy;2023 Instituto da Oportunidade Social, site desenvolvido por <a href="https://fherexe.github.io/MyLinks/">Fher</a>.Todos direitos reservados.</p>
+            <ul>Fontes:
+                <li><a href="https://superafarma.com.br/calcule-o-seu-imc-calculadora-peso-ideal/">Superafarma</a></li>
+                <li><a href="https://www.plasticadosonho.com.br/blog/lipoaspiracao/peso-ideal">PlasticadoSonho</a></li>
+            </ul>
+        </div>
+    </article>
+
+    <script>
+        function calcularImc() {
+            const peso = document.getElementById('peso').value;
+            const altura = document.getElementById('altura').value;
+            const imc = peso / (altura**2);
+            document.getElementById('resultado').textContent = imc.toFixed(2);
+        }
+    </script>
+    
+</body>
+</html>

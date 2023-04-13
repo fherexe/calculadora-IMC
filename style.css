@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+header {
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header img {
+    width: 140px;
+}
+
+main, section, article {
+    width: 100%;
+    display: flex;
+}
+
+main > div, section > div, article > div {
+    width: 50%;
+    height: 90vh;
+    padding: 5%;
+}
+
+.main-txt {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #7d9e22;
+    color: #fff;
+}
+
+.main-txt p:nth-child(1) {
+    opacity: 0.9;
+}
+
+.main-txt h1 {
+    font-weight: 300;    
+}
+
+.bg-main {
+    background: url(https://images.unsplash.com/photo-1523901839036-a3030662f220?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.section-container1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8%;
+}
+
+.section-container1 button {
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 18px;
+    background: #7d9e22;
+    padding: 10px 50px;
+}
+
+.section-container1 button:hover {
+    transition: 0.2s;
+    filter: brightness(120%);
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.container-altura, .container-peso {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: 18px;
+    font-weight: 300;
+}
+
+input {
+    font-size: 16px;
+    padding: 2px;
+}
+
+.section-container2 {
+    display: flex;
+    font-size: 18px;
+    align-items: center;
+    justify-content: center;
+    background: #7d9e22;
+}
+
+.section-container2 table {
+    border-collapse: collapse;
+    background: #fff;
+}
+
+.section-container2 th {
+    color: #fff;
+    font-weight: bold;
+}
+
+.section-container2 tr {
+    text-align: center;
+}
+
+.title-th {
+    background: #1d1d1d;
+}
+
+
+th, tr, td {
+    padding: 13px 25px;
+}
+
+.article-container1 {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-direction: column;
+    background: #7d9e22;
+    color: #fff;
+}
+
+.article-container2 {
+    display: flex;
+    flex-direction: column;
+    gap: 10%;
+    align-items: left;
+    justify-content: center;
+}
+
+.article-container2 p a {
+    font-weight: 500;
+    text-decoration: none;
+    color: #7d9e22;
+}
+
+ul {
+    list-style: none;
+}
