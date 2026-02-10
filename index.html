@@ -4,23 +4,26 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
   <link rel="stylesheet" href="style.css" />
+
   <title>Calculadora de IMC</title>
 </head>
 
 <body>
- 
+
   <main class="container">
+
+    <!-- HERO -->
     <section class="hero" aria-labelledby="titulo">
       <div class="hero__text">
         <p class="kicker">Índice de Massa Corporal</p>
         <h1 id="titulo">Calculadora de IMC</h1>
 
         <p class="lead">
-          O IMC (Índice de Massa Corporal) usa uma fórmula simples para estimar se você está em uma faixa
-          de peso considerada saudável. Ele não substitui avaliação profissional, mas ajuda a ter um
-          panorama inicial.
+          O IMC (Índice de Massa Corporal) usa uma fórmula simples para estimar
+          se você está em uma faixa de peso considerada saudável.
         </p>
 
         <p class="muted">Preencha seus dados abaixo e confira 👇</p>
@@ -29,7 +32,10 @@
       <div class="hero__media" aria-hidden="true"></div>
     </section>
 
+    <!-- GRID -->
     <section class="grid" aria-label="Calculadora e tabela">
+
+      <!-- CARD CALCULADORA -->
       <div class="card">
         <h2 class="card__title">Calcular IMC</h2>
 
@@ -60,15 +66,21 @@
           </div>
         </div>
 
+        <!-- RESULTADO -->
         <div id="resultado" class="result" role="status" aria-live="polite">
           <div class="result__label">Seu resultado</div>
           <div class="result__value">—</div>
-          <div class="result__class muted">Preencha e clique em calcular.</div>
+          <div class="result__class muted">
+            Preencha e clique em calcular.
+          </div>
         </div>
 
-        <button type="button" class="btn" onclick="calcularImc()">Calcular</button>
+        <button type="button" class="btn" id="btnCalcular">
+          Calcular
+        </button>
       </div>
 
+      <!-- CARD TABELA -->
       <div class="card">
         <h2 class="card__title">Tabela de classificação</h2>
 
@@ -92,32 +104,43 @@
           </table>
         </div>
       </div>
+
     </section>
 
+    <!-- ARTICLE -->
     <article class="card article">
       <h2 class="card__title">O IMC é confiável? É eficaz?</h2>
+
       <p>
-        O IMC sozinho não é indicado como um método de avaliação completo. Por não levar em conta a
-        composição corporal, pode não ser preciso para todas as pessoas. Ainda assim, para estimativas
-        e análises populacionais, ele é bastante útil. Para um panorama mais fiel, o ideal é avaliar
-        junto com outros indicadores e com acompanhamento profissional.
+        O IMC sozinho não é indicado como um método de avaliação completo.
+        Ele não considera a composição corporal, mas ainda é útil como
+        referência inicial e para análises populacionais.
       </p>
 
       <hr class="divider" />
-        <div class="sources">
-          <div class="sources__title">Fontes</div>
-          <ul>
-            <li><a href="https://superafarma.com.br/calcule-o-seu-imc-calculadora-peso-ideal/">Superafarma</a></li>
-            <li><a href="https://www.plasticadosonho.com.br/blog/lipoaspiracao/peso-ideal">PlasticadoSonho</a></li>
-          </ul>
-        </div>
-      </footer>
+
+      <div class="sources">
+        <div class="sources__title">Fontes</div>
+        <ul>
+          <li>
+            <a href="https://superafarma.com.br/calcule-o-seu-imc-calculadora-peso-ideal/" target="_blank">
+              Superafarma
+            </a>
+          </li>
+          <li>
+            <a href="https://www.plasticadosonho.com.br/blog/lipoaspiracao/peso-ideal" target="_blank">
+              PlasticadoSonho
+            </a>
+          </li>
+        </ul>
+      </div>
     </article>
+
   </main>
 
+  <!-- SCRIPT -->
   <script>
     function parsePtNumber(value) {
-      // troca vírgula por ponto e remove espaços
       return Number(String(value).trim().replace(",", "."));
     }
 
@@ -127,4 +150,35 @@
       if (imc < 25) return "Peso normal";
       if (imc < 30) return "Acima do peso";
       if (imc < 35) return "Obesidade grau I";
-      if (imc
+      if (imc <= 40) return "Obesidade grau II";
+      return "Obesidade grau III";
+    }
+
+    function calcularImc() {
+      const peso = parsePtNumber(document.getElementById("peso").value);
+      const altura = parsePtNumber(document.getElementById("altura").value);
+
+      const box = document.getElementById("resultado");
+      const valueEl = box.querySelector(".result__value");
+      const classEl = box.querySelector(".result__class");
+
+      if (!peso || !altura || altura <= 0) {
+        valueEl.textContent = "—";
+        classEl.textContent = "Preencha altura e peso corretamente.";
+        return;
+      }
+
+      const imc = peso / (altura ** 2);
+
+      valueEl.textContent = imc.toFixed(2);
+      classEl.textContent = classificarImc(imc);
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const btn = document.getElementById("btnCalcular");
+      btn.addEventListener("click", calcularImc);
+    });
+  </script>
+
+</body>
+</html>
