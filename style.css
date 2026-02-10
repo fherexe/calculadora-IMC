@@ -86,13 +86,8 @@ body {
 }
 
 .hero__media {
-  height: 140px;
-  background: linear-gradient(
-    135deg,
-    var(--green-light),
-    var(--green-soft)
-  );
-  border-radius: var(--radius);
+  height: 160px;
+  background: url("https://manalinda.cdn.magazord.com.br/img/2023/10/blog/4169/como-calcular-imc.jpg") center / contain no-repeat;
 }
 
 /* =========================
